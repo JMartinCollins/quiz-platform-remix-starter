@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  LiveReload
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 

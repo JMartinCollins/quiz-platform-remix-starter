@@ -40,18 +40,16 @@ const BreadcrumbObj = ({ title, path, hasTrailingSlash }: { title: string, path:
 export const DashboardBreadcrumbs = () => {
     const breadcrumbs = useDashboardBreadcrumbs();
 
-    return <div>
-        <Breadcrumb>
-            <BreadcrumbList>
-                {breadcrumbs.map((match, idx) =>
-                    <BreadcrumbObj
-                        title={match.title}
-                        path={match.path}
-                        hasTrailingSlash={idx < breadcrumbs.length - 1}
-                        key={match.title}
-                    />
-                )}
-            </BreadcrumbList>
-        </Breadcrumb>
-    </div>
+    return <Breadcrumb>
+        <BreadcrumbList>
+            {breadcrumbs.map((match, idx) =>
+                <BreadcrumbObj
+                    title={match.title}
+                    path={match.path}
+                    hasTrailingSlash={idx < breadcrumbs.length - 1}
+                    key={match.title}
+                />
+            )}
+        </BreadcrumbList>
+    </Breadcrumb>
 }

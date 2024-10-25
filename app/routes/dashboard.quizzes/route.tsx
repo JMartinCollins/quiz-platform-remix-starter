@@ -1,4 +1,4 @@
-import { BreadcrumbHandle } from '~/components/layouts/dashboard/dashboardBreadcrumbs'
+import { BreadcrumbHandle } from '../dashboard/DashboardBreadcrumbs'
 
 export const handle: BreadcrumbHandle = {
     breadcrumb: {

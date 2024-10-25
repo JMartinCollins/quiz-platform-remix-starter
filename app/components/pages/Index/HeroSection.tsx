@@ -18,7 +18,7 @@ export default function HeroSection() {
                         </div>
                         <div className="flex flex-col gap-2 min-[400px]:flex-row">
                             <Button asChild>
-                                <Link to="/builder">
+                                <Link to="/dashboard">
                                     Start Building <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>

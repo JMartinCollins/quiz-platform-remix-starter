@@ -1,7 +1,7 @@
 import { Outlet } from '@remix-run/react';
-import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/layouts/dashboard/dashboardBreadcrumbs';
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
-import { DashboardSidebar } from './dashboardSidebar';
+import { DashboardSidebar } from './DashboardSidebar';
+import { BreadcrumbHandle, DashboardBreadcrumbs } from './DashboardBreadcrumbs';
 
 
 

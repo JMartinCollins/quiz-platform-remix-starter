@@ -1,5 +1,5 @@
 import { json, LoaderFunctionArgs, type MetaFunction } from "@remix-run/node";
-import i18nextServer from '~/modules/i18next.server';
+import i18nextServer from '~/modules/i18next/i18next';
 import { useTranslation } from 'react-i18next';
 import HeroSection from '~/components/pages/Index/HeroSection';
 // import { useLoaderData } from '@remix-run/react';
@@ -12,6 +12,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  // TODO: test this with different requests and see if the language changes to zh and es
   const t = await i18nextServer.getFixedT(request);
   return json({ title: t("title"), description: t("description") });
 }

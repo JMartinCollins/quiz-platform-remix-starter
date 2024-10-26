@@ -10,7 +10,7 @@ export const handle: BreadcrumbHandle = {
 
 export default function PageOne() {
     const matches = useMatches();
-    console.log(matches);
+    console.log(matches)
     return <div>
         <h1 className='text-2xl font-bold'>Quizzes</h1>
     </div>

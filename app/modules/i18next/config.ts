@@ -1,3 +1,4 @@
+import { InitOptions } from 'i18next';
 import { serverOnly$ } from "vite-env-only/macros";
 
 import enTranslation from "~/locales/en";
@@ -16,7 +17,15 @@ export const fallbackLng = "en";
 export const defaultNS = "translation";
 
 export const resources = serverOnly$({
+    // each has a namespace of "translation"
     en: { translation: enTranslation },
     es: { translation: esTranslation },
     zh: { translation: zhTranslation },
 });
+
+export const initOptions: InitOptions = {
+    supportedLngs: ['es', 'en', 'zh'],
+    fallbackLng: "en",
+    defaultNS: "translation",
+    resources
+}

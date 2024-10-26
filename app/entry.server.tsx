@@ -5,10 +5,9 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import { createInstance, i18n as i18next } from 'i18next';
-import i18nextServer from './modules/i18next.server';
-import { I18nextProvider, initReactI18next } from 'react-i18next';
-import * as i18n from "./config/i18n";
+import { i18n as i18next } from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+import { initI18NextServer } from './modules/i18next/instance.server';
 
 const ABORT_DELAY = 5_000;
 
@@ -22,11 +21,7 @@ export default async function handleRequest(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext
 ) {
-  const i18nextInstance = createInstance();
-  const lng = await i18nextServer.getLocale(request);
-  const ns = i18nextServer.getRouteNamespaces(remixContext);
-
-  await i18nextInstance.use(initReactI18next).init({ ...i18n, lng, ns });
+  const i18nextInstance = await initI18NextServer(request, remixContext);
 
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(

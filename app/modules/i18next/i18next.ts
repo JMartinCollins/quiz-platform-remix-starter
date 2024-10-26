@@ -1,8 +1,11 @@
 import { createCookie } from "@remix-run/node";
 import { RemixI18Next } from "remix-i18next/server";
 
-import * as i18n from "@/config/i18n";
+import * as i18n from "./config";
 
+/**
+ * Helper for workign with the i18next server
+ */
 export const localeCookie = createCookie("lng", {
     path: "/",
     sameSite: "lax",

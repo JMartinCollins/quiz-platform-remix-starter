@@ -4,10 +4,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useRouteLoaderData,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
-
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import "./tailwind.css";
+import i18nextServer, { localeCookie } from './modules/i18next.server';
+import { useChangeLanguage } from "remix-i18next/react";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,9 +26,21 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export const handle = { i18n: ["translation"] };
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const locale = await i18nextServer.getLocale(request);
+  return json(
+    { locale },
+    { headers: { "Set-Cookie": await localeCookie.serialize(locale) } },
+  );
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const loaderData = useRouteLoaderData<typeof loader>("root");
+
   return (
-    <html lang="en">
+    <html lang={loaderData?.locale ?? "en"}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,5 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const { locale } = useLoaderData<typeof loader>();
+  useChangeLanguage(locale);
   return <Outlet />;
 }

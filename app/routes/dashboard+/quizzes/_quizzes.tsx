@@ -1,5 +1,5 @@
 import { $path } from 'remix-routes'
-import { BreadcrumbHandle } from '~/components/routes/Index/dashboard/DashboardBreadcrumbs'
+import { BreadcrumbHandle } from '~/components/routes/dashboard/DashboardBreadcrumbs'
 
 export const handle: BreadcrumbHandle = {
     breadcrumb: {

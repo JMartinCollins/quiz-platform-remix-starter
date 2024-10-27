@@ -1,7 +1,7 @@
 import { Outlet } from '@remix-run/react';
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
-import { DashboardSidebar } from '~/components/routes/Index/dashboard/DashboardSidebar';
-import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/routes/Index/dashboard/DashboardBreadcrumbs';
+import { DashboardSidebar } from '~/components/routes/dashboard/DashboardSidebar';
+import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/routes/dashboard/DashboardBreadcrumbs';
 import { $path } from 'remix-routes';
 
 

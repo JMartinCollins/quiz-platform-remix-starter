@@ -9,11 +9,11 @@ import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
-import { initI18NextClient } from './modules/i18next/instance.client';
+import { initI18NextClientInstance } from './modules/i18next/instance.client';
 
 async function hydrate() {
 
-  await initI18NextClient();
+  await initI18NextClientInstance();
 
   startTransition(() => {
     hydrateRoot(

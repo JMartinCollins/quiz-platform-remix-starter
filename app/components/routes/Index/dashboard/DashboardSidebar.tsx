@@ -10,11 +10,12 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { $path } from 'remix-routes'
 
 const menuItems = [
     {
         title: "Home",
-        url: "/",
+        url: $path("/"),
         icon: Home,
     },
     {
@@ -24,7 +25,7 @@ const menuItems = [
     },
     {
         title: "Quizzes",
-        url: "/dashboard/quizzes",
+        url: $path("/dashboard/quizzes"),
         icon: Calendar,
     },
     {

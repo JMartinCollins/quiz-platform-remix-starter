@@ -2,13 +2,14 @@ import { Outlet } from '@remix-run/react';
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
 import { DashboardSidebar } from '~/components/routes/Index/dashboard/DashboardSidebar';
 import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/routes/Index/dashboard/DashboardBreadcrumbs';
+import { $path } from 'remix-routes';
 
 
 
 export const handle: BreadcrumbHandle = {
     breadcrumb: {
         title: "Dashboard",
-        path: "/dashboard"
+        path: $path("/dashboard")
     }
 }
 

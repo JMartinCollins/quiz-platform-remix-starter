@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import { Button } from "~/components/ui/button";
 import { ArrowRight, Puzzle, Share2, Zap } from "lucide-react";
+import { $path } from "remix-routes";
 
 export default function HeroSection() {
     return (
@@ -18,12 +19,12 @@ export default function HeroSection() {
                         </div>
                         <div className="flex flex-col gap-2 min-[400px]:flex-row">
                             <Button asChild>
-                                <Link to="/dashboard">
+                                <Link to={$path("/dashboard")}>
                                     Start Building <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
                             <Button variant="outline" asChild>
-                                <Link to="/example">
+                                <Link to={$path("/example")}>
                                     Explore Webapp <Share2 className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>

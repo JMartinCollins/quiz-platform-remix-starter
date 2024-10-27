@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { envOnlyMacros } from "vite-env-only";
 import { flatRoutes } from 'remix-flat-routes'
+import { remixRoutes } from "remix-routes/vite";
 
 
 declare module "@remix-run/node" {
@@ -32,6 +33,7 @@ export default defineConfig({
     }),
     envOnlyMacros(),
     tsconfigPaths(),
+    remixRoutes(),
   ],
   server: {
     host: true

@@ -7,7 +7,7 @@ import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { i18n as i18next } from 'i18next';
 import { I18nextProvider } from 'react-i18next';
-import { initI18NextServer } from './modules/i18next/instance.server';
+import { initI18NextServerInstance } from './modules/i18next/instance.server';
 
 const ABORT_DELAY = 5_000;
 
@@ -21,7 +21,7 @@ export default async function handleRequest(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext
 ) {
-  const i18nextInstance = await initI18NextServer(request, remixContext);
+  const i18nextInstance = await initI18NextServerInstance(request, remixContext);
 
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(

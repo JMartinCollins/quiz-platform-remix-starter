@@ -12,6 +12,7 @@ import { json } from "@remix-run/node";
 import "./tailwind.css";
 import i18nextServer, { localeCookie } from '~/modules/i18next/i18next';
 import { useChangeLanguage } from "remix-i18next/react";
+import { useTranslation } from 'react-i18next';
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -26,7 +27,13 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export const handle = { i18n: ["translation"] };
+export const handle = {
+  // In the handle export, we can add a i18n key with namespaces our route
+  // will need to load. This key can be a single string or an array of strings.
+  // TIP: In most cases, you should set this to your defaultNS from your i18n config
+  // or if you did not set one, set it to the i18next default namespace "translation"
+  i18n: "common",
+};
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const locale = await i18nextServer.getLocale(request);
@@ -39,8 +46,11 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export function Layout({ children }: { children: React.ReactNode }) {
   const loaderData = useRouteLoaderData<typeof loader>("root");
 
+  const { i18n } = useTranslation();
+  useChangeLanguage(loaderData?.locale ?? 'en')
+
   return (
-    <html lang={loaderData?.locale ?? "en"}>
+    <html lang={loaderData?.locale ?? "en"} dir={i18n.dir()}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -19,12 +19,12 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
 
 export default function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("homepage");
   // const { description } = useLoaderData<typeof loader>();
 
   return <>
     {/* <h1>{description}</h1> */}
     <HeroSection />
-    <h1>{t("description")}</h1>
+    <h1>{t("start_building")}</h1>
   </>
 }

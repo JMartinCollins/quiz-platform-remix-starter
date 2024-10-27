@@ -2,21 +2,29 @@
 import { EntryContext } from '@remix-run/node';
 
 // Local imports
-import { initOptions } from "~/modules/i18next/config";
-import i18nextServer from './i18next';
+import config from "./config";
+import { i18nextServer } from './i18next';
 
 // i18next
 import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Backend from "i18next-fs-backend";
+import { resolve } from "node:path";
 
 /**
  * Initialized in the Remix entry.server and passed to React provider.
  */
-export const initI18NextServer = async (request: Request, remixContext: EntryContext) => {
+export const initI18NextServerInstance = async (request: Request, remixContext: EntryContext) => {
     const i18nextInstance = createInstance();
     const lng = await i18nextServer.getLocale(request);
     const ns = i18nextServer.getRouteNamespaces(remixContext);
 
-    await i18nextInstance.use(initReactI18next).init({ ...initOptions, lng, ns });
+    await i18nextInstance.use(initReactI18next).use(Backend).init({
+        ...config,
+        lng,
+        ns,
+        backend: { loadPath: resolve("./public/locales/{{lng}}/{{ns}}.json") },
+    });
     return i18nextInstance;
 }
+

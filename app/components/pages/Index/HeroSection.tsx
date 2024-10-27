@@ -1,8 +1,11 @@
 import { Link } from "@remix-run/react";
 import { Button } from "~/components/ui/button";
 import { ArrowRight, Puzzle, Share2, Zap } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 export default function HeroSection() {
+    const { t } = useTranslation("homepage")
+
     return (
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-background">
             <div className="container px-4 md:px-6">
@@ -19,7 +22,7 @@ export default function HeroSection() {
                         <div className="flex flex-col gap-2 min-[400px]:flex-row">
                             <Button asChild>
                                 <Link to="/dashboard">
-                                    Start Building <ArrowRight className="ml-2 h-4 w-4" />
+                                    {t("start_building")} <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
                             <Button variant="outline" asChild>

@@ -10,7 +10,7 @@ import {
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import "./tailwind.css";
-import i18nextServer, { localeCookie } from '~/modules/i18next/i18next';
+import { i18nextServer, localeCookie } from '~/modules/i18next/i18next';
 import { useChangeLanguage } from "remix-i18next/react";
 import { useTranslation } from 'react-i18next';
 

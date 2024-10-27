@@ -1,5 +1,5 @@
 import { json, LoaderFunctionArgs, type MetaFunction } from "@remix-run/node";
-import i18nextServer from '~/modules/i18next/i18next';
+import { i18nextServer } from '~/modules/i18next/i18next';
 import { useTranslation } from 'react-i18next';
 import HeroSection from '~/components/routes/Index/HeroSection';
 // import { useLoaderData } from '@remix-run/react';

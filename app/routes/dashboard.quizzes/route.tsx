@@ -1,5 +1,4 @@
-import { useMatches } from '@remix-run/react'
-import { BreadcrumbHandle } from '../dashboard/DashboardBreadcrumbs'
+import { BreadcrumbHandle } from '~/components/routes/Index/dashboard/DashboardBreadcrumbs'
 
 export const handle: BreadcrumbHandle = {
     breadcrumb: {
@@ -9,10 +8,11 @@ export const handle: BreadcrumbHandle = {
 }
 
 export default function PageOne() {
-    const matches = useMatches();
-    console.log(matches)
-    return <div>
-        <h1 className='text-2xl font-bold'>Quizzes</h1>
-    </div>
+
+    return (
+        <div>
+            <h1 className='text-2xl font-bold'>Quizzes</h1>
+        </div>
+    )
 }
 

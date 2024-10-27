@@ -1,7 +1,7 @@
 
 
 export default function Index() {
-    return <div>Dashboard Indexerr </div>;
+    return <div>Dashboard Index </div>;
 }
 
 

@@ -1,7 +1,7 @@
 import { Outlet } from '@remix-run/react';
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
-import { DashboardSidebar } from './DashboardSidebar';
-import { BreadcrumbHandle, DashboardBreadcrumbs } from './DashboardBreadcrumbs';
+import { DashboardSidebar } from '~/components/routes/Index/dashboard/DashboardSidebar';
+import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/routes/Index/dashboard/DashboardBreadcrumbs';
 
 
 
@@ -15,7 +15,6 @@ export const handle: BreadcrumbHandle = {
 export default function Dashboard() {
 
     return <div>
-
         <SidebarProvider>
             <DashboardSidebar />
             <div className='flex flex-col w-full'>

@@ -16,6 +16,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
  * it prepares the i18next instance to pass into the React provider for the client
  */
 export const initI18NextClient = () =>
+    // disabled because I can't control their API
+    // eslint-disable-next-line import/no-named-as-default-member
     i18next
         .use(initReactI18next) // Tell i18next to use the react-i18next plugin
         .use(LanguageDetector) // Setup a client-side language detector

@@ -4,9 +4,9 @@ import { ArrowRight, Puzzle, Share2, Zap } from "lucide-react";
 import { $path } from "remix-routes";
 import { useTranslation } from "react-i18next";
 
+const HOMEPAGE_NS = "homepage";
 export default function HeroSection() {
-    const { t } = useTranslation("homepage");
-
+    const { t } = useTranslation(HOMEPAGE_NS);
     return (
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-background">
             <div className="container px-4 md:px-6">
@@ -65,3 +65,5 @@ export default function HeroSection() {
         </section>
     )
 }
+
+HeroSection.i18n = [HOMEPAGE_NS];

@@ -47,10 +47,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const loaderData = useRouteLoaderData<typeof loader>("root");
 
   const { i18n } = useTranslation();
-  useChangeLanguage(loaderData?.locale ?? 'en')
+  useChangeLanguage(loaderData?.locale || 'en')
 
   return (
-    <html lang={loaderData?.locale ?? "en"} dir={i18n.dir()}>
+    <html lang={loaderData?.locale || "en"} dir={i18n.dir()}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

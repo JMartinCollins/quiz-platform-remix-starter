@@ -1,6 +1,30 @@
-# Welcome to Remix!
+
+
+# Welcome to This Remix Starter!
 
 - 📖 [Remix docs](https://remix.run/docs)
+
+## Features 🍕
+
+- Typescript
+- [i18next](docs/i18next.md)
+    - loads all translations into memory on the server
+    - scans for translation files in locales folder and components folders
+    - (no type safety yet for t() and useTranslation hooks yet)
+- tailwind css
+- shadcn/ui w/ lucide icons
+- remix flat routes
+- remix routes $path helper for typesafe routes
+
+Coming soon...
+- // testing
+    - Vitest
+- // dragndrop
+- // logging
+- // monitoring
+- // auth (remix-auth)
+- // remix utils
+- // conform
 
 ## Development
 

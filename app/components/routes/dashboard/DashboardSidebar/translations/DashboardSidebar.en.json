@@ -1,3 +1,7 @@
 {
-    "home": "Home"
+    "home": "Home",
+    "notifications": "Notifications",
+    "quizzes": "Quizzes",
+    "questions": "Questions",
+    "settings": "Settings"
 }

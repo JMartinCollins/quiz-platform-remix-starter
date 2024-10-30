@@ -20,22 +20,22 @@ const menuItems = [
         icon: Home,
     },
     {
-        title: "Notifications",
+        title: "notifications",
         url: "#",
         icon: Inbox,
     },
     {
-        title: "Quizzes",
+        title: "quizzes",
         url: $path("/dashboard/quizzes"),
         icon: Calendar,
     },
     {
-        title: "Questions",
+        title: "questions",
         url: "#",
         icon: Search,
     },
     {
-        title: "Settings",
+        title: "settings",
         url: "#",
         icon: Settings,
     },

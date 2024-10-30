@@ -19,14 +19,15 @@ export const initI18NextClientInstance = () =>
     // disabled since I can't control their API.
     // eslint-disable-next-line import/no-named-as-default-member
     i18next
-        .use(initReactI18next) // Tell i18next to use the react-i18next plugin
-        .use(LanguageDetector) // Setup a client-side language detector
-        .use(Backend) // Setup your backend
+        .use(initReactI18next)
+        .use(LanguageDetector)
+        .use(Backend)
         .init({
-            ...config, // spread the configuration
+            ...config,
+            // resources: // do not include resources here or they will all be sent to the client.
             // This function detects the namespaces your routes rendered while SSR use
             ns: getInitialNamespaces(),
-            backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
+            backend: { loadPath: "/api/translations?lng={{lng}}&ns={{ns}}" },
             detection: {
                 // Here only enable htmlTag detection, we'll detect the language only
                 // server-side with remix-i18next, by using the `<html lang>` attribute

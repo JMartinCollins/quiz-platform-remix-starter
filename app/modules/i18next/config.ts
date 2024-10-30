@@ -1,5 +1,11 @@
 import { InitOptions } from 'i18next';
 
+
+
+
+/**
+ * The languages that the i18n application supports. 
+ */
 export const languages = [
     { code: "en", name: "English" },
     { code: "es", name: "Español" },
@@ -7,11 +13,8 @@ export const languages = [
 ];
 
 export default {
-    // This is the list of languages your application supports
     supportedLngs: languages.map(({ code }) => code),
-    // This is the language you want to use in case
-    // if the user language is not in the supportedLngs
     fallbackLng: languages[0].code,
-    // The default namespace of i18next is "translation"
+    ns: ['common'],
     defaultNS: "common",
 } as InitOptions;

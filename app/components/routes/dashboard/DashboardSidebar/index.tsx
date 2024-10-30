@@ -11,10 +11,11 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { $path } from 'remix-routes'
+import { useTranslation } from 'react-i18next';
 
 const menuItems = [
     {
-        title: "Home",
+        title: "home",
         url: $path("/"),
         icon: Home,
     },
@@ -40,12 +41,14 @@ const menuItems = [
     },
 ]
 
-export function DashboardSidebar() {
+export const DashboardSidebar = () => {
+    const { t } = useTranslation('DashboardSidebar');
+
     return (
         <Sidebar>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Application</SidebarGroupLabel>
+                    <SidebarGroupLabel>{`${t('home')}`}Application</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {menuItems.map((item) => (
@@ -53,7 +56,7 @@ export function DashboardSidebar() {
                                     <SidebarMenuButton asChild>
                                         <a href={item.url}>
                                             <item.icon />
-                                            <span>{item.title}</span>
+                                            <span>{t(item.title) as string}</span>
                                         </a>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
@@ -64,4 +67,8 @@ export function DashboardSidebar() {
             </SidebarContent>
         </Sidebar>
     )
+}
+
+DashboardSidebar.handle = {
+    i18n: ['DashboardSidebar']
 }

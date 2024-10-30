@@ -1,16 +1,18 @@
 import { Outlet } from '@remix-run/react';
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
-import { DashboardSidebar } from '~/components/routes/dashboard/DashboardSidebar';
+import { DashboardSidebar } from '@/components/routes/dashboard/DashboardSidebar';
 import { BreadcrumbHandle, DashboardBreadcrumbs } from '~/components/routes/dashboard/DashboardBreadcrumbs';
 import { $path } from 'remix-routes';
+import { I18nHandle } from '~/modules/i18next/util';
 
 
 
-export const handle: BreadcrumbHandle = {
+export const handle: BreadcrumbHandle & I18nHandle = {
     breadcrumb: {
         title: "Dashboard",
         path: $path("/dashboard")
-    }
+    },
+    i18n: ['Dashboard', ...DashboardSidebar.handle.i18n]
 }
 
 export default function Dashboard() {
